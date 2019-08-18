@@ -1,0 +1,85 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "make all",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-c",
+                "make all"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "make debug",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-c",
+                "make debug"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "make clean",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-c",
+                "make clean"
+            ]
+        },
+        {
+            "label": "make distclean",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-c",
+                "make distclean"
+            ]
+        },
+        {
+            "label": "mingw32-make all",
+            "type": "shell",
+            "command": "mingw32-make",
+            "args": [
+                "all"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "mingw32-make debug",
+            "type": "shell",
+            "command": "mingw32-make",
+            "args": [
+                "debug"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "mingw32-make clean",
+            "type": "shell",
+            "command": "mingw32-make",
+            "args": [
+                "clean"
+            ]
+        },
+        {
+            "label": "mingw32-make distclean",
+            "type": "shell",
+            "command": "mingw32-make",
+            "args": [
+                "distclean"
+            ]
+        }
+    ]
+}
