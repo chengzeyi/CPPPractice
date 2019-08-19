@@ -1,6 +1,6 @@
 # tool marcros
 CC := g++
-CCFLAG := -std=c++11 -Wall
+CCFLAG := -std=c++11 -Wall -DDEBUG
 DBGFLAG := -g
 CCOBJFLAG := $(CCFLAG) -c
 
@@ -67,10 +67,10 @@ distclean:
 	@rm -f $(DISTCLEAN_LIST)
 
 .PHONY: run
-run: all
-	@./bin/main
+run: $(TARGET)
+	@./$(TARGET)
 
 .PHONY: rundebug
-run: all
-	@./debug/main
+rundebug: $(TARGET_DEBUG)
+	@./$(TARGET_DEBUG)
 
