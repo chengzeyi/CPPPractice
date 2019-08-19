@@ -1,34 +1,47 @@
 #include <iostream>
+#include <unordered_map>
+
+#define MAX 1000000007
 
 using namespace std;
 
-inline int getCurrSum(int n) {
-    int currSum = 0;
-    while (n != 0) {
-        currSum += n % 10;
-        n /= 10;
+unordered_map<long long, long long> op;
+
+long long solve(long long N) {
+    auto search = op.find(N);
+    if (search != op.end()) {
+        return search->second;
     }
-    return currSum;
+    if (N <= 0) {
+        return 1;
+    }
+    if (N <= 2) j
+        return N;
+    }
+    long long a = N / 2;
+    long long sa = solve(a);
+    long long sa2 = solve(a - 2);
+
+    long long b = N - a;
+    long long sb = solve(b);
+    long long sb2 = solve(b - 2);
+
+    long long total = sa * sb % MAX;
+    long long tmp = sa2 * sb2 % MAX;
+    total = (total + tmp) % MAX;
+    op.emplace(N, total);
+    return total;
 }
 
 int main(int argc, char *argv[]) {
-    int l, r;
-    cin >> l >> r;
-    string s;
+    int t;
+    cin >> t;
+    for (int i = 0; i < t; i++) {
+        long long N;
+        cin >> N;
+        long long result = solve(N);
+        cout << result << endl;
+    }
 
-    int totalSum = 0;
-    for (int i = 1; i< l; ++i) {
-        totalSum += getCurrSum(i);
-    }
-    int count = 0;
-    for (int i = l; i <= r; ++i) {
-        totalSum += getCurrSum(i);
-        if (totalSum % 3 == 0) {
-            count++;
-        }
-    }
-    
-    cout << count << endl;
-    
-	return 0;
+    return 0;
 }

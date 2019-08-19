@@ -48,9 +48,9 @@ $(TARGET_DEBUG): $(OBJ_DEBUG)
 
 # default rule
 .PHONY: default
-default: all
+default: build
 
-.PHONY: all
+.PHONY: build
 all: $(TARGET)
 
 .PHONY: debug
@@ -65,3 +65,12 @@ clean:
 distclean:
 	@echo DISTCLEAN $(DISTCLEAN_LIST)
 	@rm -f $(DISTCLEAN_LIST)
+
+.PHONY: run
+run: all
+	@./bin/main
+
+.PHONY: rundebug
+run: all
+	@./debug/main
+
